@@ -1,9 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Provider } from 'react-redux';
+import store from '@/store/index';
+
 function App() {
 	return (
-		<AppContent />
+		<Provider store={store}>
+			<AppContent />
+		</Provider>
 	);
 }
 
