@@ -1,17 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { Provider } from 'react-redux';
-import store from '@/store/index';
+import { store } from '@/store/store';
+import { Files } from './components/Files';
 
 function App() {
+
 	return (
 		<Provider store={store}>
-			<AppContent />
+			<Files/>
 		</Provider>
 	);
 }
-
-const AppContent = styled.div``;
 
 export default App;
