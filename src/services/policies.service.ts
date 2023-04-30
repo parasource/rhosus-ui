@@ -1,4 +1,4 @@
-import { createApi } from '@reduxjs/toolkit/query/react';
+import { createApi, FetchArgs } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from '.';
 import { TPoliciesList, TPolicyPath } from '@/types/policies.types';
 
@@ -6,15 +6,15 @@ export const policiesAPI = createApi({
 	reducerPath: 'policiesAPI',
 	baseQuery,
 	endpoints: (builder) => ({
-		createPolicy: builder.mutation<{success: boolean}, {name: string, body: Array<TPolicyPath>}>({
-			query: ({name, ...body}) => ({
+		createPolicy: builder.mutation<{ success: boolean }, { name: string, body: Array<TPolicyPath> }>({
+			query: ({ name, ...body }: { name: string, body: Array<TPolicyPath> }): string | FetchArgs => ({
 				method: 'POST',
 				url: `/sys/policies/${name}`,
-				body 
-			})
+				body,
+			}),
 		}),
 		getPoliciesList: builder.mutation<TPoliciesList, null>({
-			query: () => ({
+			query: (): string | FetchArgs => ({
 				method: 'LIST',
 				url: '/sys/policies',
 			}),
@@ -22,7 +22,7 @@ export const policiesAPI = createApi({
 				return rawResult.result.data;
 			},
 		}),
-	})
+	}),
 });
 
 export const useCreatePolicy = policiesAPI.endpoints.createPolicy.useMutation;

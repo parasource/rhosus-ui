@@ -1,4 +1,4 @@
-import { createApi } from '@reduxjs/toolkit/query/react';
+import { createApi, FetchArgs } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from '.';
 import { TFilesList } from '@/types/file.types';
 
@@ -7,7 +7,7 @@ export const filesAPI = createApi({
 	baseQuery,
 	endpoints: (builder) => ({
 		getFilesList: builder.mutation<TFilesList, string | null>({
-			query: (path) => ({
+			query: (path: string): string | FetchArgs => ({
 				method: 'LIST',
 				url: `/${path}`,
 			}),
@@ -16,25 +16,25 @@ export const filesAPI = createApi({
 			},
 		}),
 		getFile: builder.query<any, string | null>({
-			query: (path) => ({
+			query: (path: string): string | FetchArgs => ({
 				url: `/${path}`,
 			}),
 		}),
-		deleteFile: builder.mutation<{success: boolean}, string | null>({
-			query: (path) => ({
+		deleteFile: builder.mutation<{ success: boolean }, string | null>({
+			query: (path: string): string | FetchArgs => ({
 				method: 'DELETE',
 				url: `/${path}`,
 			}),
 		}),
-		putFile: builder.mutation<{success: boolean}, {path: string, file: object}>({
-			query: ({path, ...file}) => ({
+		putFile: builder.mutation<{ success: boolean }, { path: string, file: object }>({
+			query: ({ path, ...file }: { path: string, file: object }) => ({
 				method: 'POST',
 				url: `/${path}`,
 				formData: true,
-				body: file
+				body: file,
 			}),
 		}),
-	})
+	}),
 });
 
 export const usePutFile = filesAPI.endpoints.putFile.useMutation;
