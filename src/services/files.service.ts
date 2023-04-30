@@ -1,6 +1,7 @@
 import { createApi, FetchArgs } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from '.';
 import { TFilesList } from '@/types/files.types';
+import { emitErrorResponse } from '@/utils/toastifyActions';
 
 export const filesAPI = createApi({
 	reducerPath: 'filesAPI',
@@ -14,17 +15,26 @@ export const filesAPI = createApi({
 			transformResponse: (rawResult: { result: { data: TFilesList } }) => {
 				return rawResult.result.data;
 			},
+			transformErrorResponse: (response: { err: string | [] }): void => {
+				emitErrorResponse(response);
+			},
 		}),
 		getFile: builder.query<any, string | null>({
 			query: (path: string): string | FetchArgs => ({
 				url: `/${path}`,
 			}),
+			transformErrorResponse: (response: { err: string | [] }): void => {
+				emitErrorResponse(response);
+			},
 		}),
 		deleteFile: builder.mutation<{ success: boolean }, string | null>({
 			query: (path: string): string | FetchArgs => ({
 				method: 'DELETE',
 				url: `/${path}`,
 			}),
+			transformErrorResponse: (response: { err: string | [] }): void => {
+				emitErrorResponse(response);
+			},
 		}),
 		putFile: builder.mutation<{ success: boolean }, { path: string, file: object }>({
 			query: ({ path, ...file }: { path: string, file: object }) => ({
@@ -33,6 +43,9 @@ export const filesAPI = createApi({
 				formData: true,
 				body: file,
 			}),
+			transformErrorResponse: (response: { err: string | [] }): void => {
+				emitErrorResponse(response);
+			},
 		}),
 	}),
 });

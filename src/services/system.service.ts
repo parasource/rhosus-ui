@@ -1,6 +1,7 @@
 import { createApi, FetchArgs } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from '.';
 import { TLoginResponse, TLoginUser } from '@/types/system.types';
+import { emitErrorResponse } from '@/utils/toastifyActions';
 
 export const systemAPI = createApi({
 	reducerPath: 'systemAPI',
@@ -12,6 +13,9 @@ export const systemAPI = createApi({
 				url: '/sys/mkdir',
 				body: { path: path },
 			}),
+			transformErrorResponse: (response: { err: string | [] }): void => {
+				emitErrorResponse(response);
+			},
 		}),
 		login: builder.mutation<TLoginResponse, TLoginUser>({
 			query: (body: TLoginUser): string | FetchArgs => ({
@@ -21,6 +25,9 @@ export const systemAPI = createApi({
 			}),
 			transformResponse: (rawResult: { result: { data: TLoginResponse } }) => {
 				return rawResult.result.data;
+			},
+			transformErrorResponse: (response: { err: string | [] }): void => {
+				emitErrorResponse(response);
 			},
 		}),
 	}),
