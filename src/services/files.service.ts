@@ -1,6 +1,6 @@
 import { createApi, FetchArgs } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from '.';
-import { TFilesList } from '@/types/file.types';
+import { TFilesList } from '@/types/files.types';
 
 export const filesAPI = createApi({
 	reducerPath: 'filesAPI',
