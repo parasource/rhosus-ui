@@ -2,7 +2,6 @@ export type TPolicy = {
 	paths: [
 
 	]
-
 }
 
 export type TPolicyPath = {

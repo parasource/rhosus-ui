@@ -12,12 +12,6 @@ export const filesAPI = createApi({
 				method: 'LIST',
 				url: `/${path}`,
 			}),
-			transformResponse: (rawResult: { result: { data: TFilesList } }) => {
-				return rawResult.result.data;
-			},
-			transformErrorResponse: (response: { err: string | [] }): void => {
-				emitErrorResponse(response);
-			},
 		}),
 		getFile: builder.query<any, string | null>({
 			query: (path: string): string | FetchArgs => ({

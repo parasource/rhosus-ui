@@ -6,7 +6,7 @@ export const Files = () => {
 	const [getFilesList, { data }] = useGetFilesList();
 
 	useEffect(() => {
-		getFilesList('folder');
+		getFilesList('');
 	}, []);
 
 	return (

@@ -6,5 +6,20 @@ For starts, create .env.(development | production).local file in root directory.
 REACT_APP_BASE_URL="http://localhost:8001"
 ```
 
-Then you can start your application
+## Install packages
 
+For npm:
+```sh
+npm install
+```
+
+For yarn:
+```sh
+yarn
+```
+
+## Start project
+
+```sh
+npm start
+```
