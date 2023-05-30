@@ -10,7 +10,7 @@ export const Files = () => {
 	}, []);
 
 	return (
-		<div>
+		<div style={{height: '100vh'}}>
 			{data?.list &&
 				data.list.map((file: TFile, index: number) => (
 					<p key={'files_item_' + index}>{file.name}</p>
