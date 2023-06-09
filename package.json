@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^7.1.0",
+    "@fluentui/react-icons": "^2.0.202",
+    "@fluentui/svg-icons": "^1.1.198",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -51,6 +53,7 @@
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "eslint": "^8.38.0",
-    "eslint-plugin-react": "^7.32.2"
+    "eslint-plugin-react": "^7.32.2",
+    "svg-inline-loader": "^0.8.2"
   }
 }

@@ -4,6 +4,8 @@ import { FetchArgs } from '@reduxjs/toolkit/query/react';
 export const baseQuery: BaseQueryFn<string | FetchArgs> = fetchBaseQuery({
 	baseUrl: process.env.REACT_APP_BASE_URL,
 	prepareHeaders: (headers: Headers) => {
-		return headers.set('X-Rhosus-Token', 'db504fe62fb5b025465b822b1a68bdc3c1609a956715ff3de94accdecc0d4d9a');
+		headers.set('X-Rhosus-Token', '590d1b5aae4c6bdbc189690746e9074874e69113902941b3b732e34de72179ff');
+		return headers;
 	},
+	
 });
