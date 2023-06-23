@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { logo } from '@/images';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -7,7 +6,7 @@ const Header = () => {
 		<HeaderWrapper>
 			<Link to='/'>
 				<Logo>
-					<img src={logo} alt='logo' />
+					<img src={'/images/logo.svg'} alt='Rhosus - distribution file system' />
 				</Logo>
 			</Link>
 
@@ -63,7 +62,7 @@ const NavigationItem = styled.span`
 const Logo = styled.div`
   margin-right: 64px;
   transition: 0.2s;
-
+	height: 47px;
   &:hover {
     opacity: 0.8;
   }
