@@ -8,9 +8,15 @@
 	src: url('../../public/fonts/MPLUSRounded1c-Medium.ttf');
 }
 
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../../public/fonts/OpenSans.ttf');
+}
+
 body {
   margin: 0;
   overflow: hidden;
+	font-family: 'Open Sans';
 }
 
 a {

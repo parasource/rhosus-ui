@@ -1,10 +1,10 @@
 import { Provider } from 'react-redux';
 import { store } from '@/store/store';
-import Files from './modules/files';
-import Header from '@/components/Header';
+import Header from '@/components/UI/Header';
 import styled from 'styled-components';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import TitleContent from '@/components/TitleContent';
+import TitleContent from '@/components/UI/TitleContent';
+import { Clusters } from './modules/clusters';
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
 			<AppContent>
 				<Provider store={store}>
 					<Routes>
-						<Route path='/files' element={<Files />} />
+						<Route path='/clusters' element={<Clusters />} />
 					</Routes>
 				</Provider>
 			</AppContent>
