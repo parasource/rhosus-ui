@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Search } from './components/Search';
 import styled from 'styled-components';
 import { Button } from '@/components/UI/Button';
-import { AddFilled, PulseSquareFilled } from '@fluentui/react-icons';
+import { AddFilled } from '@fluentui/react-icons';
 import { Table } from './components/Table';
+import { useGetPoliciesList } from '@/services/policies.service';
+import { useNavigate } from 'react-router-dom';
+import { TPoliciesList } from '@/types/policies.types';
 
 export const Policies = () => {
-	// const [getPoliciesList, { data }] = useGetPoliciesList();
+	const [getPoliciesList, { data }] = useGetPoliciesList();
+	const navigate = useNavigate();
 
-	// useEffect(() => {
-	// 	getPoliciesList(null);
-	// }, []);
+	useEffect(() => {
+		getPoliciesList(null);
+	}, []);
 
 	const [value, setValue] = useState('');
 
@@ -21,12 +25,12 @@ export const Policies = () => {
 					{...{value}} 
 					onChange={(e) => setValue(e.currentTarget.value)}
 					onSubmit={(e) => e.preventDefault()}/>
-				<Button label={<ButtonContent>
+				<Button label={<ButtonContent onClick={() => navigate('create')}>
 					Create policy
 					<AddFilled/>
 				</ButtonContent>}/>
 			</Header>
-			<Table/>
+			<Table {...{data}}/>
 		</div>
 	);
 };

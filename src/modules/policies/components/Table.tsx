@@ -1,27 +1,25 @@
+import { TPoliciesList } from '@/types/policies.types';
 import { DocumentRegular, MoreHorizontalFilled } from '@fluentui/react-icons';
+import { FC } from 'react';
 import styled from 'styled-components';
 
-export const Table = () => {
+interface IProps {
+	data: TPoliciesList | undefined
+}
+
+export const Table: FC<IProps> = ({data}) => {
 	return (
 		<Wrapper>
-			<Item>
-				<NameTD>
-					<DocumentRegular/>
-					Default
-				</NameTD>
-				<MoreBtn>
-					<MoreHorizontalFilled/>
-				</MoreBtn>
-			</Item>
-			<Item>
-				<NameTD>
-					<DocumentRegular/>
-					Root
-				</NameTD>
-				<MoreBtn>
-					<MoreHorizontalFilled/>
-				</MoreBtn>
-			</Item>
+			{data?.policies.map((policy: any) => (
+				<Item key={'policy_' + policy.name}>
+					<NameTD>
+						<DocumentRegular/>
+						{policy.name}
+					</NameTD>
+					<MoreBtn>
+						<MoreHorizontalFilled/>
+					</MoreBtn>
+				</Item>))}
 		</Wrapper>
 	);
 };

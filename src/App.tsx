@@ -6,6 +6,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import TitleContent from '@/components/UI/TitleContent';
 import { Clusters } from './modules/clusters';
 import { Policies } from './modules/policies';
+import { CreatePolicy } from './modules/policies/CreatePolicy';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 					<Routes>
 						<Route path='/clusters' element={<Clusters />} />
 						<Route path='/policies' element={<Policies />} />
+						<Route path='/policies/create' element={<CreatePolicy />} />
 					</Routes>
 				</Provider>
 			</AppContent>
