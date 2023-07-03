@@ -22,15 +22,13 @@ export const Table = () => {
 						<td>1.4</td>
 						<BtnsWrapper>
 							<Button label={
-								<><ButtonContent>
+								<ButtonContent>
 									<ArrowClockwiseRegular/><span>Update</span>
-								</ButtonContent>
-								</>}/>
+								</ButtonContent>}/>
 							<Button label={
-								<><ButtonContent>
+								<ButtonContent>
 									<EditRegular/><span>Edit</span>
-								</ButtonContent>
-								</>} color='#fff' background='#7129FF'/>
+								</ButtonContent>} color='#fff' background='#7129FF'/>
 						</BtnsWrapper>
 					</tr>
 					<tr>
@@ -40,15 +38,13 @@ export const Table = () => {
 						<td>1.4</td>
 						<BtnsWrapper>
 							<Button label={
-								<><ButtonContent>
+								<ButtonContent>
 									<ArrowClockwiseRegular/><span>Update</span>
-								</ButtonContent>
-								</>}/>
+								</ButtonContent>}/>
 							<Button label={
-								<><ButtonContent>
+								<ButtonContent>
 									<EditRegular/><span>Edit</span>
-								</ButtonContent>
-								</>} color='#fff' background='#7129FF'/>
+								</ButtonContent>} color='#fff' background='#7129FF'/>
 						</BtnsWrapper>
 					</tr>
 				</tbody>

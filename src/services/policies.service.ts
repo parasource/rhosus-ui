@@ -22,9 +22,6 @@ export const policiesAPI = createApi({
 				method: 'LIST',
 				url: '/sys/policies',
 			}),
-			transformResponse: (rawResult: { result: { data: TPoliciesList } }) => {
-				return rawResult.result.data;
-			},
 			transformErrorResponse: (response: { err: string | [] }): void => {
 				emitErrorResponse(response);
 			},
