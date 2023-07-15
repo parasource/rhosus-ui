@@ -7,8 +7,8 @@ export const policiesAPI = createApi({
 	reducerPath: 'policiesAPI',
 	baseQuery,
 	endpoints: (builder) => ({
-		createPolicy: builder.mutation<{ success: boolean }, { name: string, body: string }>({
-			query: ({ name, body }: { name: string, body: string }): string | FetchArgs => ({
+		createPolicy: builder.mutation<{ success: boolean }, { name: string, body: object }>({
+			query: ({ name, body }: { name: string, body: object }): string | FetchArgs => ({
 				method: 'POST',
 				url: `/sys/policies/${name}`,
 				body,
@@ -17,8 +17,8 @@ export const policiesAPI = createApi({
 				emitErrorResponse(response);
 			},
 		}),
-		getPoliciesList: builder.mutation<TPoliciesList, null>({
-			query: (): string | FetchArgs => ({
+		getPoliciesList: builder.mutation<TPoliciesList, string>({
+			query: (value: string): string | FetchArgs => ({
 				method: 'LIST',
 				url: '/sys/policies',
 			}),

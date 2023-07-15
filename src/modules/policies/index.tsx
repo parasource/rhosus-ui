@@ -6,17 +6,17 @@ import { AddFilled } from '@fluentui/react-icons';
 import { Table } from './components/Table';
 import { useGetPoliciesList } from '@/services/policies.service';
 import { useNavigate } from 'react-router-dom';
-import { TPoliciesList } from '@/types/policies.types';
 
 export const Policies = () => {
 	const [getPoliciesList, { data }] = useGetPoliciesList();
 	const navigate = useNavigate();
+	
+	const [value, setValue] = useState('');
 
 	useEffect(() => {
-		getPoliciesList(null);
+		getPoliciesList(value);
 	}, []);
 
-	const [value, setValue] = useState('');
 
 	return (
 		<div>

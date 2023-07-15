@@ -20,12 +20,14 @@ export const CreatePolicy = () => {
 		if(name.trim() && policy){
 			const data = {
 				name,
-				body: policy
+				body: JSON.parse(policy)
 			};
 
 			createPolicy(data)
+				.unwrap()
 				.then(() => {
 					toast.success('Policy created');
+					reset();
 				});
 		}
 	};
