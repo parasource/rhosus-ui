@@ -30,7 +30,7 @@ export const Button: React.FC<IProps> = ({children, onClick, theme, margin}) => 
 const Wrapper = styled.div<IStyledProps>`
 	cursor: pointer;
 	display: block;
-	padding: 8px;
+	padding: 6px 20px;
 	font-weight: 400;
 	font-size: 12px;
 	background: ${(props: IStyledProps)  => props?.background?.default};
@@ -38,6 +38,7 @@ const Wrapper = styled.div<IStyledProps>`
 	margin: ${(props: IProps) => props.margin};
 	border: ${(props: IStyledProps)  => props?.border?.default};
 	border-radius: 4px;
+	line-height: 142.857%;
 	width: fit-content;
 	&:hover{
 		transition: .2s;

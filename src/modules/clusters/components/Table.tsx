@@ -21,14 +21,16 @@ export const Table = () => {
 						<td>1</td>
 						<td>1.4</td>
 						<BtnsWrapper>
-							<Button label={
+							<Button>
 								<ButtonContent>
 									<ArrowClockwiseRegular/><span>Update</span>
-								</ButtonContent>}/>
-							<Button label={
+								</ButtonContent>
+							</Button>
+							<Button theme='primary'>
 								<ButtonContent>
 									<EditRegular/><span>Edit</span>
-								</ButtonContent>} color='#fff' background='#7129FF'/>
+								</ButtonContent>
+							</Button>
 						</BtnsWrapper>
 					</tr>
 					<tr>
@@ -37,14 +39,16 @@ export const Table = () => {
 						<td>1</td>
 						<td>1.4</td>
 						<BtnsWrapper>
-							<Button label={
+							<Button>
 								<ButtonContent>
 									<ArrowClockwiseRegular/><span>Update</span>
-								</ButtonContent>}/>
-							<Button label={
+								</ButtonContent>
+							</Button>
+							<Button theme='primary'>
 								<ButtonContent>
 									<EditRegular/><span>Edit</span>
-								</ButtonContent>} color='#fff' background='#7129FF'/>
+								</ButtonContent>
+							</Button>
 						</BtnsWrapper>
 					</tr>
 				</tbody>
