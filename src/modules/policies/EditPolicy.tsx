@@ -65,8 +65,12 @@ export const EditPolicy = () => {
 				}}
 			/>
 			<BtnsWrapper>
-				<Button label='Edit policy' background='#1976d2' color='#fff' onClick={submit}/>
-				<Button label='Cancel' onClick={reset}/>
+				<Button onClick={submit} theme='primary'>
+					Edit policy
+				</Button>
+				<Button onClick={reset}>
+					Cancel
+				</Button>
 			</BtnsWrapper>
 		</div>
 	);

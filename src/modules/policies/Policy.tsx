@@ -46,8 +46,12 @@ export const Policy = () => {
 				}}
 			/>
 			<BtnsWrapper>
-				<Button label='Edit policy' background='#1976d2' color='#fff' onClick={submit}/>
-				<Button label='Remove' background='#EE4B42' color='#fff' onClick={remove}/>
+				<Button onClick={submit} theme='primary'>
+					Edit policy
+				</Button>
+				<Button onClick={remove}>
+					Remove
+				</Button>
 			</BtnsWrapper>
 		</div>
 	);

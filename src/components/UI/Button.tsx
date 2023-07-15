@@ -1,36 +1,63 @@
+import { backgrounds, borders, colors } from '@/constants/themes';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
 interface IProps {
-	label?: string | HTMLElement | ReactElement,
+	children?: string | HTMLElement | ReactElement,
 	onClick?(): void,
-	background?: string,
-	color?: string,
+	theme?: string,
 	margin?: string,
 }
 
-export const Button: React.FC<IProps> = ({label, onClick, background, color, margin}) => {
+interface IStyledProps {
+	background?: any,
+	color?: any,
+	border?: any,
+}
+
+export const Button: React.FC<IProps> = ({children, onClick, theme, margin}) => {
+	const background = (backgrounds as any)[theme || 'secondary'];
+	const color = (colors as any)[theme || 'secondary'];
+	const border = (borders as any)[theme || 'secondary'];
+
 	return (
-		<Wrapper {...{background, color, onClick, margin}}>
-			{label}
+		<Wrapper {...{onClick, margin, background, color, border}}>
+			{children}
 		</Wrapper>
 	);
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<IStyledProps>`
 	cursor: pointer;
 	display: block;
 	padding: 8px;
 	font-weight: 400;
 	font-size: 12px;
-	background: ${(props: IProps) => props.background || '#F0F0F0'};
-	color: ${(props: IProps) => props.color || '#000'};
+	background: ${(props: IStyledProps)  => props?.background?.default};
+	color: ${(props: IStyledProps)  => props?.color?.default};
 	margin: ${(props: IProps) => props.margin};
-	border: 1px solid #ccc;
+	border: ${(props: IStyledProps)  => props?.border?.default};
 	border-radius: 4px;
 	width: fit-content;
 	&:hover{
 		transition: .2s;
-		opacity: .6;
+		background: ${(props: IStyledProps)  => props?.background?.hover};
+		color: ${(props: IStyledProps)  => props?.color?.hover};
+		border: ${(props: IStyledProps)  => props?.border?.hover};
+	}
+	&:active{
+		background: ${(props: IStyledProps)  => props?.background?.pressed};
+		color: ${(props: IStyledProps)  => props?.color?.pressed};
+		border: ${(props: IStyledProps)  => props?.border?.pressed};
+	}
+	&:disabled{
+		background: ${(props: IStyledProps)  => props?.background?.disables};
+		color: ${(props: IStyledProps)  => props?.color?.disables};
+		border: ${(props: IStyledProps)  => props?.border?.disables};
+	}
+	&:focus{
+		background: ${(props: IStyledProps)  => props?.background?.focused};
+		color: ${(props: IStyledProps)  => props?.color?.focused};
+		border: ${(props: IStyledProps)  => props?.border?.focused};
 	}
 `;

@@ -60,8 +60,12 @@ export const CreatePolicy = () => {
 				}}
 			/>
 			<BtnsWrapper>
-				<Button label='Create policy' background='#1976d2' color='#fff' onClick={submit}/>
-				<Button label='Cancel' onClick={reset}/>
+				<Button onClick={submit} theme='primary'>
+					Create policy
+				</Button>
+				<Button onClick={reset}>
+					Cancel
+				</Button>
 			</BtnsWrapper>
 		</div>
 	);

@@ -25,10 +25,12 @@ export const Policies = () => {
 					{...{value}} 
 					onChange={(e) => setValue(e.currentTarget.value)}
 					onSubmit={(e) => e.preventDefault()}/>
-				<Button label={<ButtonContent onClick={() => navigate('create')}>
-					Create policy
-					<AddFilled/>
-				</ButtonContent>}/>
+				<Button>
+					<ButtonContent onClick={() => navigate('create')}>
+						Create policy
+						<AddFilled/>
+					</ButtonContent>
+				</Button>
 			</Header>
 			<Table {...{data}}/>
 		</div>
