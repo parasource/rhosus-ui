@@ -1,6 +1,7 @@
 import { TPoliciesList } from '@/types/policies.types';
 import { DocumentRegular, MoreHorizontalFilled } from '@fluentui/react-icons';
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface IProps {
@@ -8,10 +9,12 @@ interface IProps {
 }
 
 export const Table: FC<IProps> = ({data}) => {
+	const navigate = useNavigate();
+
 	return (
 		<Wrapper>
 			{data?.policies.map((policy: any) => (
-				<Item key={'policy_' + policy.name}>
+				<Item key={'policy_' + policy.name} onClick={() => navigate(policy.name)}>
 					<NameTD>
 						<DocumentRegular/>
 						{policy.name}

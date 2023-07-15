@@ -7,6 +7,8 @@ import TitleContent from '@/components/UI/TitleContent';
 import { Clusters } from './modules/clusters';
 import { Policies } from './modules/policies';
 import { CreatePolicy } from './modules/policies/CreatePolicy';
+import { Policy } from './modules/policies/Policy';
+import { EditPolicy } from './modules/policies/EditPolicy';
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
 					<Routes>
 						<Route path='/clusters' element={<Clusters />} />
 						<Route path='/policies' element={<Policies />} />
+						<Route path='/policies/:id' element={<Policy />} />
+						<Route path='/policies/:id/edit' element={<EditPolicy />} />
 						<Route path='/policies/create' element={<CreatePolicy />} />
 					</Routes>
 				</Provider>

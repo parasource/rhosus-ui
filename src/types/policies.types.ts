@@ -1,7 +1,6 @@
 export type TPolicy = {
-	paths: [
-
-	]
+	name: string,
+	paths: Array<TPolicyPath>
 }
 
 export type TPolicyPath = {
